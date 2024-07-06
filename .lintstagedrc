@@ -1,0 +1,4 @@
+{
+  "*.{js,jsx,json}": ["npm run format", "npm run lint"],
+  "*.ts?(x)": ["npm run format", "npm run lint"]
+}
