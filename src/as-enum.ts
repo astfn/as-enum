@@ -18,6 +18,8 @@ type EnumExtraInfoType<T extends TPreset> = T[number][3] extends undefined
   ? object
   : T[number][3];
 
+type TPossibleValueType<T extends TPreset> = EnumValueType<T> | EnumKeyType<T>;
+
 type MapValueType<T extends TPreset> = {
   value: EnumValueType<T>;
   label: EnumLabelType<T>;
@@ -39,7 +41,8 @@ export class AsEnum<T extends TPreset> {
     valueAlias: "value"
   };
   private optionsCache: Array<any> = [];
-
+  public _possible_v_type!: TPossibleValueType<T>;
+  public _strict_v_type!: EnumValueType<T>;
   constructor(preset: T) {
     const mapInfoTuples: Array<[EnumKeyType<T>, MapValueType<T>]> = [];
     preset.forEach(tuple => {
@@ -70,17 +73,17 @@ export class AsEnum<T extends TPreset> {
     return this.mapInfo.get(key);
   }
 
-  public labelByValue(value: EnumValueType<T> | EnumKeyType<T>) {
+  public labelByValue(value: TPossibleValueType<T>) {
     return this.infoByValue(value)?.label;
   }
 
-  public keyByValue(value: EnumValueType<T> | EnumKeyType<T>) {
+  public keyByValue(value: TPossibleValueType<T>) {
     return Array.from(this.mapInfo.entries()).find(
       ([_, v]) => v.value === value
     )?.[0];
   }
 
-  public infoByValue(value: EnumValueType<T> | EnumKeyType<T>) {
+  public infoByValue(value: TPossibleValueType<T>) {
     return Array.from(this.mapInfo.values()).find(item => item.value === value);
   }
 
@@ -141,7 +144,9 @@ export function asEnum<T extends TPreset>(
     infoByValue: e.infoByValue.bind(e),
     keys: e.keys,
     values: e.values,
-    labels: e.labels
+    labels: e.labels,
+    _possible_v_type: e._possible_v_type,
+    _strict_v_type: e._strict_v_type
   };
   return result;
 }
