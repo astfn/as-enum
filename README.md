@@ -1,4 +1,4 @@
-[English README](https://github.com/astfn/as-enum)
+[English README](https://github.com/astfn/as-enum/blob/main/README.EN.md)
 
 ### What
 
@@ -14,4 +14,4 @@
 
 - 🎉 在 ts 项目中, 有良好的类型提示
 
-[-> 了解更多内容，请前往文档](https://github.com/astfn/as-enum)
+[-> 了解更多内容，请前往文档](https://github.com/astfn/as-enum/blob/main/docs/DOC.md)

@@ -1,4 +1,4 @@
-[中文 README](https://github.com/astfn/as-enum)
+[中文 README](https://github.com/astfn/as-enum/blob/main/README.md)
 
 ### What
 
@@ -14,4 +14,4 @@
 
 - 🎉 Provides excellent type hints in TypeScript projects.
 
-[-> Learn more in the documentation](https://github.com/astfn/as-enum)
+[-> Learn more in the documentation](https://github.com/astfn/as-enum/blob/main/docs/DOC.EN.md)

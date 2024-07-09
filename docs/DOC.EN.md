@@ -1,8 +1,12 @@
-[中文文档](https://github.com/astfn/as-enum)
+[中文文档](https://github.com/astfn/as-enum/blob/main/docs/DOC.md)
 
 ## What
 
 `as-enum` is a simple enumeration management tool designed to help frontend developers easily maintain enum information.
+
+>Naming it as "as" is intended to make it as simple to use as TypeScript enums while supporting even more features, and of course, without compromising on the necessary type hints.
+>
+>(Incidentally, my name is Ashun 😂, which seems to be a perfect coincidence.)
 
 #### Features
 
@@ -13,8 +17,6 @@
 - ✨ Supports enum values of any type, not limited to string or numeric enums.
 
 - 🎉 Provides excellent type hints in TypeScript projects.
-
-[-> Learn more in the documentation](https://github.com/astfn/as-enum)
 
 ## Why
 
@@ -337,9 +339,9 @@ TaskStatusOptions.REJECTED.disabled;// true
 
 #### complex type enum values
 
-原生 ts 的枚举只支持两种格式：字符串枚举、数字枚举（复合枚举是二者的综合使用形式）
+Native TypeScript enums only support two formats: string enums and numeric enums (composite enums being a combined usage of both).
 
-`as-enum` 允许定义任意类型的枚举值，也正是因为如此，本工具将支持更复杂的使用场景，只要你有维护映射关系信息的需要，`as-enum` 也许都能帮到你。
+`as-enum` allows defining enum values of any type. Precisely because of this, this tool will support more complex usage scenarios. Whenever you have a need to maintain mapping relationship information, `as-enum` might be able to help you.
 
 #### complex type enum keys
 
@@ -424,11 +426,11 @@ If you want to obtain the strict enum value type, you can achieve this through t
 
 ### Retrieve Iteration Information
 
-| 方法名 | 类型                   | 功能描述                        |
-| ------ | ---------------------- | ------------------------------- |
-| keys   | `Array<EnumKeyType>`   | Retrieve All Enumeration Keys   |
-| values | `Array<EnumValueType>` | Retrieve All Enumeration Values |
-| labels | `Array<EnumLabelType>` | Retrieve All Enumeration Labels |
+| Property Name, | Type                   | Function Description            |
+| -------------- | ---------------------- | ------------------------------- |
+| keys           | `Array<EnumKeyType>`   | Retrieve All Enumeration Keys   |
+| values         | `Array<EnumValueType>` | Retrieve All Enumeration Values |
+| labels         | `Array<EnumLabelType>` | Retrieve All Enumeration Labels |
 
 #### genOptions
 
@@ -448,15 +450,15 @@ Used as the data source for generating options for the Select component, with op
 
 #### Retrieve related configuration information based on enumeration key
 
-| 方法名     | 类型                                                         | 功能描述                                          |
-| ---------- | ------------------------------------------------------------ | ------------------------------------------------- |
-| valueByKey | `(key: EnumKeyType)=> EnumValueType`                         | Retrieve value based on key                       |
-| labelByKey | `(key: EnumKeyType)=> EnumLabelType`                         | Retrieve label based on key                       |
-| infoByKey  | `(key: EnumKeyType)=> { value: EnumValueType; label: EnumLabelType; extraInfo: EnumExtraInfoType }` | Retrieve all enumeration information based on key |
+| Method Name | Type                                                         | Function Description                              |
+| ----------- | ------------------------------------------------------------ | ------------------------------------------------- |
+| valueByKey  | `(key: EnumKeyType)=> EnumValueType`                         | Retrieve value based on key                       |
+| labelByKey  | `(key: EnumKeyType)=> EnumLabelType`                         | Retrieve label based on key                       |
+| infoByKey   | `(key: EnumKeyType)=> { value: EnumValueType; label: EnumLabelType; extraInfo: EnumExtraInfoType }` | Retrieve all enumeration information based on key |
 
 #### Retrieve related configuration information based on enumeration value
 
-| 方法名       | 类型                                                         | 功能描述                                                     |
+| Method Name  | Type                                                         | Function Description                                         |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | labelByValue | `(value: _possible_v_type)=> EnumLabelType`                  | Retrieve label based on value                                |
 | keyByValue   | `(value: _possible_v_type)=> EnumLabelType`                  | Retrieve key based on value                                  |

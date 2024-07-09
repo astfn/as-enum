@@ -1,4 +1,4 @@
-[English Doc](https://github.com/astfn/as-enum)
+[English Doc](https://github.com/astfn/as-enum/blob/main/docs/DOC.EN.md)
 
 ## What
 
@@ -422,7 +422,7 @@ const TaskStatusOptions = asEnum([
 
 ### 获取迭代信息
 
-| 方法名 | 类型                   | 功能描述             |
+| 属性名 | 类型                   | 功能描述             |
 | ------ | ---------------------- | -------------------- |
 | keys   | `Array<EnumKeyType>`   | 获取枚举所有的 key   |
 | values | `Array<EnumValueType>` | 获取枚举所有的 value |
