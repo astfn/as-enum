@@ -1,6 +1,6 @@
 {
   "name": "@astfn/as-enum",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "description": "An enumeration management tool built using TypeScript.",
   "author": "astfn",
@@ -16,8 +16,8 @@
     "url": "https://github.com/astfn/as-enum"
   },
   "type": "module",
-  "main": "lib/as-enum.cjs.js",
-  "module": "lib/as-enum.esm.js",
+  "main": "lib/as-enum.cjs",
+  "module": "lib/as-enum.mjs",
   "types": "lib/index.d.ts",
   "files": [
     "lib"
