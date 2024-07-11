@@ -200,15 +200,15 @@ However, through the example provided earlier, you can surely perceive the pain 
 ### Installation
 
 ```
-npm install @astfn/as-enum
+npm install as-enum
 ```
 
 ```
-pnpm add @astfn/as-enum
+pnpm add as-enum
 ```
 
 ```
-yarn add @astfn/as-enum
+yarn add as-enum
 ```
 
 

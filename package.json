@@ -1,6 +1,6 @@
 {
-  "name": "@astfn/as-enum",
-  "version": "1.0.1",
+  "name": "as-enum",
+  "version": "1.0.0",
   "license": "MIT",
   "description": "An enumeration management tool built using TypeScript.",
   "author": "astfn",

@@ -196,15 +196,15 @@ const TaskStatusOptions = asEnum([
 ### 安装
 
 ```
-npm install @astfn/as-enum
+npm install as-enum
 ```
 
 ```
-pnpm add @astfn/as-enum
+pnpm add as-enum
 ```
 
 ```
-yarn add @astfn/as-enum
+yarn add as-enum
 ```
 
 
