@@ -94,6 +94,13 @@ describe("pther-api", () => {
     expect(enumOptions.labelByKey(state4_key)).toBe("state4_label");
     expect(enumOptions.labelByKey(state5_key)).toBe("state5_key");
 
+    // get extra info by key
+    expect(enumOptions.extraInfoByKey(state4_key)).toEqual({
+      color: "#aaa",
+      disabled: true
+    });
+    expect(enumOptions.extraInfoByKey(state5_key)).toEqual({});
+
     // get info by key
     expect(enumOptions.infoByKey(state5_key)).toEqual({
       label: "state5_key",
@@ -119,6 +126,13 @@ describe("pther-api", () => {
     expect(enumOptions.labelByValue("state3_value")).toBe("state3_label");
     expect(enumOptions.labelByValue("state4_value")).toBe("state4_label");
     expect(enumOptions.labelByValue(state5_key)).toBe("state5_key");
+
+    //get extra info by value
+    expect(enumOptions.extraInfoByValue("state4_value")).toEqual({
+      color: "#aaa",
+      disabled: true
+    });
+    expect(enumOptions.extraInfoByValue(state5_key)).toEqual({});
 
     // get info by value
     expect(enumOptions.infoByValue("state4_value")).toEqual({

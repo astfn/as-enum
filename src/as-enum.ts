@@ -69,6 +69,10 @@ export class AsEnum<T extends TPreset> {
     return this.mapInfo.get(key)?.label;
   }
 
+  public extraInfoByKey(key: EnumKeyType<T>) {
+    return this.mapInfo.get(key)?.extraInfo;
+  }
+
   public infoByKey(key: EnumKeyType<T>) {
     return this.mapInfo.get(key);
   }
@@ -81,6 +85,10 @@ export class AsEnum<T extends TPreset> {
     return Array.from(this.mapInfo.entries()).find(
       ([_, v]) => v.value === value
     )?.[0];
+  }
+
+  public extraInfoByValue(value: TPossibleValueType<T>) {
+    return this.infoByValue(value)?.extraInfo;
   }
 
   public infoByValue(value: TPossibleValueType<T>) {
@@ -137,11 +145,13 @@ export function asEnum<T extends TPreset>(
     ...e.getDic(),
     valueByKey: e.valueByKey.bind(e),
     labelByKey: e.labelByKey.bind(e),
+    extraInfoByKey: e.extraInfoByKey.bind(e),
+    infoByKey: e.infoByKey.bind(e),
     labelByValue: e.labelByValue.bind(e),
     keyByValue: e.keyByValue.bind(e),
-    genOptions: e.genOptions.bind(e),
-    infoByKey: e.infoByKey.bind(e),
+    extraInfoByValue: e.extraInfoByValue.bind(e),
     infoByValue: e.infoByValue.bind(e),
+    genOptions: e.genOptions.bind(e),
     keys: e.keys,
     values: e.values,
     labels: e.labels,

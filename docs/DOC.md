@@ -446,19 +446,21 @@ const TaskStatusOptions = asEnum([
 
 #### 根据枚举 key 获取相关配置信息
 
-| 方法名     | 类型                                                         | 功能描述                  |
-| ---------- | ------------------------------------------------------------ | ------------------------- |
-| valueByKey | `(key: EnumKeyType)=> EnumValueType`                         | 根据 key 获取 value       |
-| labelByKey | `(key: EnumKeyType)=> EnumLabelType`                         | 根据 key 获取 label       |
-| infoByKey  | `(key: EnumKeyType)=> { value: EnumValueType; label: EnumLabelType; extraInfo: EnumExtraInfoType }` | 根据 key 获取所有枚举信息 |
+| 方法名         | 类型                                                         | 功能描述                        |
+| -------------- | ------------------------------------------------------------ | ------------------------------- |
+| valueByKey     | `(key: EnumKeyType)=> EnumValueType`                         | 根据 key 获取 value             |
+| labelByKey     | `(key: EnumKeyType)=> EnumLabelType`                         | 根据 key 获取 label             |
+| extraInfoByKey | `(key: EnumKeyType)=> EnumExtraInfoType`                     | 根据 key 获取额外配置的附加信息 |
+| infoByKey      | `(key: EnumKeyType)=> { value: EnumValueType; label: EnumLabelType; extraInfo: EnumExtraInfoType }` | 根据 key 获取所有枚举信息       |
 
 #### 根据枚举 value 获取相关配置信息
 
-| 方法名       | 类型                                                         | 功能描述                    |
-| ------------ | ------------------------------------------------------------ | --------------------------- |
-| labelByValue | `(value: _possible_v_type)=> EnumLabelType`                  | 根据 value 获取 label       |
-| keyByValue   | `(value: _possible_v_type)=> EnumLabelType`                  | 根据 value 获取 key         |
-| infoByValue  | `(value: _possible_v_type)=> { value: EnumValueType; label: EnumLabelType; extraInfo: EnumExtraInfoType }` | 根据 value 获取所有枚举信息 |
+| 方法名           | 类型                                                         | 功能描述                          |
+| ---------------- | ------------------------------------------------------------ | --------------------------------- |
+| labelByValue     | `(value: _possible_v_type)=> EnumLabelType`                  | 根据 value 获取 label             |
+| keyByValue       | `(value: _possible_v_type)=> EnumLabelType`                  | 根据 value 获取 key               |
+| extraInfoByValue | `(value: _possible_v_type)=> EnumExtraInfoType`              | 根据 value 获取额外配置的附加信息 |
+| infoByValue      | `(value: _possible_v_type)=> { value: EnumValueType; label: EnumLabelType; extraInfo: EnumExtraInfoType }` | 根据 value 获取所有枚举信息       |
 
 
 

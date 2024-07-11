@@ -450,19 +450,21 @@ Used as the data source for generating options for the Select component, with op
 
 #### Retrieve related configuration information based on enumeration key
 
-| Method Name | Type                                                         | Function Description                              |
-| ----------- | ------------------------------------------------------------ | ------------------------------------------------- |
-| valueByKey  | `(key: EnumKeyType)=> EnumValueType`                         | Retrieve value based on key                       |
-| labelByKey  | `(key: EnumKeyType)=> EnumLabelType`                         | Retrieve label based on key                       |
-| infoByKey   | `(key: EnumKeyType)=> { value: EnumValueType; label: EnumLabelType; extraInfo: EnumExtraInfoType }` | Retrieve all enumeration information based on key |
+| Method Name    | Type                                                         | Function Description                                         |
+| -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| valueByKey     | `(key: EnumKeyType)=> EnumValueType`                         | Retrieve value based on key                                  |
+| labelByKey     | `(key: EnumKeyType)=> EnumLabelType`                         | Retrieve label based on key                                  |
+| extraInfoByKey | `(key: EnumKeyType)=> EnumExtraInfoType`                     | Retrieve additional information for extra configuration based on the key |
+| infoByKey      | `(key: EnumKeyType)=> { value: EnumValueType; label: EnumLabelType; extraInfo: EnumExtraInfoType }` | Retrieve all enumeration information based on key            |
 
 #### Retrieve related configuration information based on enumeration value
 
-| Method Name  | Type                                                         | Function Description                                         |
-| ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| labelByValue | `(value: _possible_v_type)=> EnumLabelType`                  | Retrieve label based on value                                |
-| keyByValue   | `(value: _possible_v_type)=> EnumLabelType`                  | Retrieve key based on value                                  |
-| infoByValue  | `(value: _possible_v_type)=> { value: EnumValueType; label: EnumLabelType; extraInfo: EnumExtraInfoType }` | Retrieve all enumeration information associated with the given value |
+| Method Name      | Type                                                         | Function Description                                         |
+| ---------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| labelByValue     | `(value: _possible_v_type)=> EnumLabelType`                  | Retrieve label based on value                                |
+| keyByValue       | `(value: _possible_v_type)=> EnumLabelType`                  | Retrieve key based on value                                  |
+| extraInfoByValue | `(value: _possible_v_type)=> EnumExtraInfoType`              | Retrieve additional information for extra configuration based on the value |
+| infoByValue      | `(value: _possible_v_type)=> { value: EnumValueType; label: EnumLabelType; extraInfo: EnumExtraInfoType }` | Retrieve all enumeration information associated with the given value |
 
 ## x-enum
 
