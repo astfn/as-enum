@@ -416,7 +416,9 @@ const TaskStatusOptions = asEnum([
 
 >`typeof asEnumObj._strict_v_type` 将严格按照配置的 value 进行推断，如果你没有配置 value，则类型将会推断为 `undefined`。 
 
+**typeof asEnumObj._extra_info_type**
 
+如果你想获取配置的附加信息类型，可以通过该方式实现。
 
 ## api
 

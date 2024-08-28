@@ -420,7 +420,9 @@ If you want to obtain the strict enum value type, you can achieve this through t
 
 >`typeof asEnumObj._strict_v_type` will infer strictly based on the configured value. If no value is configured, the type will be inferred as `undefined`.
 
+**typeof asEnumObj._extra_info_type**
 
+If you want to obtain the type of additional information about the configuration, you can achieve it through this method.
 
 ## api
 

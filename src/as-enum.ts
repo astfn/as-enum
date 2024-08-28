@@ -43,6 +43,7 @@ export class AsEnum<T extends TPreset> {
   private optionsCache: Array<any> = [];
   public _possible_v_type!: TPossibleValueType<T>;
   public _strict_v_type!: EnumValueType<T>;
+  public _extra_info_type!: EnumExtraInfoType<T>;
   constructor(preset: T) {
     const mapInfoTuples: Array<[EnumKeyType<T>, MapValueType<T>]> = [];
     preset.forEach(tuple => {
@@ -156,7 +157,8 @@ export function asEnum<T extends TPreset>(
     values: e.values,
     labels: e.labels,
     _possible_v_type: e._possible_v_type,
-    _strict_v_type: e._strict_v_type
+    _strict_v_type: e._strict_v_type,
+    _extra_info_type: e._extra_info_type
   };
   return result;
 }
