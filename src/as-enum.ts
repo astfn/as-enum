@@ -41,6 +41,7 @@ export class AsEnum<T extends TPreset> {
     valueAlias: "value"
   };
   private optionsCache: Array<any> = [];
+  public _key_type!: EnumKeyType<T>;
   public _possible_v_type!: TPossibleValueType<T>;
   public _strict_v_type!: EnumValueType<T>;
   public _extra_info_type!: EnumExtraInfoType<T>;
@@ -156,6 +157,7 @@ export function asEnum<T extends TPreset>(
     keys: e.keys,
     values: e.values,
     labels: e.labels,
+    _key_type: e._key_type,
     _possible_v_type: e._possible_v_type,
     _strict_v_type: e._strict_v_type,
     _extra_info_type: e._extra_info_type
