@@ -4,9 +4,9 @@
 
 `as-enum` is a simple enumeration management tool designed to help frontend developers easily maintain enum information.
 
->Naming it as "as" is intended to make it as simple to use as TypeScript enums while supporting even more features, and of course, without compromising on the necessary type hints.
+> Naming it as "as" is intended to make it as simple to use as TypeScript enums while supporting even more features, and of course, without compromising on the necessary type hints.
 >
->(Incidentally, my name is Ashun 😂, which seems to be a perfect coincidence.)
+> (Incidentally, my name is Ashun 😂, which seems to be a perfect coincidence.)
 
 #### Features
 
@@ -20,9 +20,9 @@
 
 ## Why
 
-​	In our daily frontend development tasks, whether it's writing pure frontend logic or enumerating interface parameters agreed upon with the backend, we often need to define enumerations.
+In our daily frontend development tasks, whether it's writing pure frontend logic or enumerating interface parameters agreed upon with the backend, we often need to define enumerations.
 
-​	For example, maintaining a dropdown select box (using the antd Select component as an example) that includes options such as: "Pending", "Executed", "Rejected", "Archived".
+For example, maintaining a dropdown select box (using the antd Select component as an example) that includes options such as: "Pending", "Executed", "Rejected", "Archived".
 
 <img src="DOC.EN.assets/001.png" alt="001" style="zoom:80%;" />
 
@@ -211,8 +211,6 @@ pnpm add as-enum
 yarn add as-enum
 ```
 
-
-
 ### Basic Enumeration Information
 
 #### key & value
@@ -251,7 +249,7 @@ export enum TaskStatusEnum {
 }
 ```
 
- Accessing enum values is similar to native TypeScript enums, where you can retrieve configuration information by accessing the corresponding property names `asEnumObj.key.value`
+Accessing enum values is similar to native TypeScript enums, where you can retrieve configuration information by accessing the corresponding property names `asEnumObj.key.value`
 
 ```
 TaskStatusOptions.EXECUTING.value //1
@@ -267,8 +265,6 @@ const TaskStatusOptions = asEnum([
   ["ARCHIVED"]
 ] as const);
 ```
-
-
 
 #### lable
 
@@ -333,8 +329,6 @@ TaskStatusOptions.WAITING.color;	// "#FFD700"
 TaskStatusOptions.REJECTED.disabled;// true
 ```
 
-
-
 ### Complex type Enum
 
 #### complex type enum values
@@ -349,11 +343,9 @@ Native TypeScript enums only support two formats: string enums and numeric enums
 
 However, if your key is a complex type (neither string nor number), [you'll need to utilize additional APIs to retrieve related enum information and benefit from type validation](####Handling keys of complex type enums)
 
-
-
 ### Type hinting
 
-#### assisted by `as const`, aids in type inference. 
+#### assisted by `as const`, aids in type inference.
 
 When configuring enum information using `as-enum`, it's necessary to force inference into constants to achieve a nearly perfect type hinting experience.
 
@@ -408,19 +400,23 @@ In such cases, you can utilize [API](##api) like `valueByKey`, `labelByKey`, and
 
 #### Obtaining the type of an enum value
 
-**typeof asEnumObj._possible_v_type**
+**typeof asEnumObj.\_key_type**
+
+If you want to obtain the enumeration key type of the configuration, you can achieve it through this method.
+
+**typeof asEnumObj.\_possible_v_type**
 
 Used to obtain the type for all possible enum values, which includes all enum keys.
 
->When an enumeration's `value` is not explicitly configured, the `value` will automatically inherit the value of its `key`.
+> When an enumeration's `value` is not explicitly configured, the `value` will automatically inherit the value of its `key`.
 
-**typeof asEnumObj._strict_v_type**
+**typeof asEnumObj.\_strict_v_type**
 
 If you want to obtain the strict enum value type, you can achieve this through this method.
 
->`typeof asEnumObj._strict_v_type` will infer strictly based on the configured value. If no value is configured, the type will be inferred as `undefined`.
+> `typeof asEnumObj._strict_v_type` will infer strictly based on the configured value. If no value is configured, the type will be inferred as `undefined`.
 
-**typeof asEnumObj._extra_info_type**
+**typeof asEnumObj.\_extra_info_type**
 
 If you want to obtain the type of additional information about the configuration, you can achieve it through this method.
 
@@ -446,27 +442,25 @@ Used as the data source for generating options for the Select component, with op
 
 `genOptions` possesses a caching feature, where new options are only generated when the alias for options is updated. Otherwise, multiple calls to `genOptions` will return the same reference object.
 
-
-
 ### Retrieve information for a specific configuration
 
 #### Retrieve related configuration information based on enumeration key
 
-| Method Name    | Type                                                         | Function Description                                         |
-| -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| valueByKey     | `(key: EnumKeyType)=> EnumValueType`                         | Retrieve value based on key                                  |
-| labelByKey     | `(key: EnumKeyType)=> EnumLabelType`                         | Retrieve label based on key                                  |
-| extraInfoByKey | `(key: EnumKeyType)=> EnumExtraInfoType`                     | Retrieve additional information for extra configuration based on the key |
-| infoByKey      | `(key: EnumKeyType)=> { value: EnumValueType; label: EnumLabelType; extraInfo: EnumExtraInfoType }` | Retrieve all enumeration information based on key            |
+| Method Name    | Type                                                                                                | Function Description                                                     |
+| -------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| valueByKey     | `(key: EnumKeyType)=> EnumValueType`                                                                | Retrieve value based on key                                              |
+| labelByKey     | `(key: EnumKeyType)=> EnumLabelType`                                                                | Retrieve label based on key                                              |
+| extraInfoByKey | `(key: EnumKeyType)=> EnumExtraInfoType`                                                            | Retrieve additional information for extra configuration based on the key |
+| infoByKey      | `(key: EnumKeyType)=> { value: EnumValueType; label: EnumLabelType; extraInfo: EnumExtraInfoType }` | Retrieve all enumeration information based on key                        |
 
 #### Retrieve related configuration information based on enumeration value
 
-| Method Name      | Type                                                         | Function Description                                         |
-| ---------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| labelByValue     | `(value: _possible_v_type)=> EnumLabelType`                  | Retrieve label based on value                                |
-| keyByValue       | `(value: _possible_v_type)=> EnumLabelType`                  | Retrieve key based on value                                  |
-| extraInfoByValue | `(value: _possible_v_type)=> EnumExtraInfoType`              | Retrieve additional information for extra configuration based on the value |
-| infoByValue      | `(value: _possible_v_type)=> { value: EnumValueType; label: EnumLabelType; extraInfo: EnumExtraInfoType }` | Retrieve all enumeration information associated with the given value |
+| Method Name      | Type                                                                                                       | Function Description                                                       |
+| ---------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| labelByValue     | `(value: _possible_v_type)=> EnumLabelType`                                                                | Retrieve label based on value                                              |
+| keyByValue       | `(value: _possible_v_type)=> EnumLabelType`                                                                | Retrieve key based on value                                                |
+| extraInfoByValue | `(value: _possible_v_type)=> EnumExtraInfoType`                                                            | Retrieve additional information for extra configuration based on the value |
+| infoByValue      | `(value: _possible_v_type)=> { value: EnumValueType; label: EnumLabelType; extraInfo: EnumExtraInfoType }` | Retrieve all enumeration information associated with the given value       |
 
 ## x-enum
 

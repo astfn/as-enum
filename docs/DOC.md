@@ -2,27 +2,27 @@
 
 ## What
 
- `as-enum` 是一个简单的枚举管理工具，能够让前端开发者更加方便的维护枚举信息。
+`as-enum` 是一个简单的枚举管理工具，能够让前端开发者更加方便的维护枚举信息。
 
->以 as 命名，希望像使用 ts 枚举一样简单的同时，支持更多功能，并且该有的类型提示也不能少。
+> 以 as 命名，希望像使用 ts 枚举一样简单的同时，支持更多功能，并且该有的类型提示也不能少。
 >
->(其次，我叫 Ashun 😂，简直是不谋而合)	
+> (其次，我叫 Ashun 😂，简直是不谋而合)
 
 #### 特性
 
-* ☕ 支持快速生成 ui 库 `Select` 组件的 `options` 数据源
-  * 默认生成的 options 属性名以 antd 为准（支持配置属性别名）
-* ⚙️ 支持为各项枚举添加自定义的附加信息
-* 😄 支持快速获取枚举的 `key`、`value`、`label` 等相关信息。
-* ✨ 支持任意类型枚举值，不仅仅局限于字符串、数字枚举
+- ☕ 支持快速生成 ui 库 `Select` 组件的 `options` 数据源
+  - 默认生成的 options 属性名以 antd 为准（支持配置属性别名）
+- ⚙️ 支持为各项枚举添加自定义的附加信息
+- 😄 支持快速获取枚举的 `key`、`value`、`label` 等相关信息。
+- ✨ 支持任意类型枚举值，不仅仅局限于字符串、数字枚举
 
-- 🎉 在 ts 项目中, 有良好的类型提示
+* 🎉 在 ts 项目中, 有良好的类型提示
 
 ## Why
 
-​	在日常的前端开发工作中，不论是编写纯前端逻辑，还是与后端约定的接口参数枚举，我们都要编写枚举。
+在日常的前端开发工作中，不论是编写纯前端逻辑，还是与后端约定的接口参数枚举，我们都要编写枚举。
 
-​	例如维护一个下拉选择框（以使用 antd  Select 组件为例），它包含几个选项：等待中、已执行、被驳回、已归档。
+例如维护一个下拉选择框（以使用 antd Select 组件为例），它包含几个选项：等待中、已执行、被驳回、已归档。
 
 <img src="DOC.assets/001.png" alt="001" style="zoom:80%;" />
 
@@ -119,7 +119,7 @@ export const TaskStatusOptions = [
 随后，产品希望在任务列表 Table 中也沿用这种个性化展示的效果。为此我们至少要做两件事：
 
 1. 在渲染表格中的状态列时，需要根据枚举值拿到对应的配置信息(color、disable、title 等)。为了更加快捷的获取对应枚举的信息，因此就要把 TaskStatusOptions 重构成 object
-2. 兼容重构之前使用 TaskStatusOptions 的代码（下拉选项的生成） 
+2. 兼容重构之前使用 TaskStatusOptions 的代码（下拉选项的生成）
 
 此时，TaskStatusOptions 已经变成了这样
 
@@ -166,7 +166,7 @@ export const TaskStatusOptions = Object.freeze({
 
 为此，你又要对代码进行一系列的改动😂
 
-如果使用了  `as-enum` 你只需要编写以下代码即可，选项生成的顺序，严格按照配置顺序构建。
+如果使用了 `as-enum` 你只需要编写以下代码即可，选项生成的顺序，严格按照配置顺序构建。
 
 ```
 const TaskStatusOptions = asEnum([
@@ -179,7 +179,7 @@ const TaskStatusOptions = asEnum([
 
 ---
 
-​	上文通过模拟实际的业务迭代场景，来体现日常枚举维护过程中的痛点，总结如下：
+上文通过模拟实际的业务迭代场景，来体现日常枚举维护过程中的痛点，总结如下：
 
 1. 编写过程太麻烦，每次都要维护两个常量（枚举 + 数据源）
 2. 并且由于枚举值和枚举信息没有维护在一起，后续维护起来比较麻烦
@@ -189,7 +189,7 @@ const TaskStatusOptions = asEnum([
 
    当然了，上面的场景只是粗略的模拟，实际情况可能更加简单，也可能更加复杂。并且，由于每个人代码编写风格的差异，也许你并不会遇到上述的某些问题。
 
-​	但通过上文的例子，相信你一定能感知到日常维护枚举信息的痛点，`as-enum` 能够帮到你。
+但通过上文的例子，相信你一定能感知到日常维护枚举信息的痛点，`as-enum` 能够帮到你。
 
 ## 快速上手
 
@@ -206,8 +206,6 @@ pnpm add as-enum
 ```
 yarn add as-enum
 ```
-
-
 
 ### 基础枚举信息
 
@@ -247,7 +245,7 @@ export enum TaskStatusEnum {
 }
 ```
 
- 访问枚举值的形式与原生 ts 枚举相似，可通过访问对应的属性名获取配置信息 `asEnumObj.key.value`
+访问枚举值的形式与原生 ts 枚举相似，可通过访问对应的属性名获取配置信息 `asEnumObj.key.value`
 
 ```
 TaskStatusOptions.EXECUTING.value //1
@@ -263,8 +261,6 @@ const TaskStatusOptions = asEnum([
   ["ARCHIVED"]
 ] as const);
 ```
-
-
 
 #### lable
 
@@ -329,8 +325,6 @@ TaskStatusOptions.WAITING.color;	// "#FFD700"
 TaskStatusOptions.REJECTED.disabled;// true
 ```
 
-
-
 ### 复杂类型枚举
 
 #### 复杂类型枚举值
@@ -344,8 +338,6 @@ TaskStatusOptions.REJECTED.disabled;// true
 `as-enum` 也突破了传统枚举对于 key 的限制，也可以是任意类型的数据结构。
 
 当然了，如果你的 key 是复杂类型（非 string、非 number），[此时需要利用额外的 api 获取相关枚举信息，并享有类型校验](####处理复杂类型枚举键)
-
-
 
 ### 类型提示
 
@@ -404,19 +396,23 @@ const TaskStatusOptions = asEnum([
 
 #### 获取枚举值的类型
 
-**typeof asEnumObj._possible_v_type**
+**typeof asEnumObj.\_key_type**
+
+如果你想获取配置的枚举 key 类型，可以通过该方式实现。
+
+**typeof asEnumObj.\_possible_v_type**
 
 用于获取所有可能的枚举值类型，这将包含所有枚举的 key。
 
->因为当不配置枚举的 value 时，value 的值将自动继承 key 的值
+> 因为当不配置枚举的 value 时，value 的值将自动继承 key 的值
 
-**typeof asEnumObj._strict_v_type**
+**typeof asEnumObj.\_strict_v_type**
 
 如果你想获取严格的枚举 value 类型，可以通过该方式实现。
 
->`typeof asEnumObj._strict_v_type` 将严格按照配置的 value 进行推断，如果你没有配置 value，则类型将会推断为 `undefined`。 
+> `typeof asEnumObj._strict_v_type` 将严格按照配置的 value 进行推断，如果你没有配置 value，则类型将会推断为 `undefined`。
 
-**typeof asEnumObj._extra_info_type**
+**typeof asEnumObj.\_extra_info_type**
 
 如果你想获取配置的附加信息类型，可以通过该方式实现。
 
@@ -440,31 +436,27 @@ const TaskStatusOptions = asEnum([
 
 ##### 缓存特性
 
-​	`genOptions` 具有缓存的特性，只有当选项别名更新时，才会生成新的 options，否则多次调用，返回的是同一引用对象。
-
-
+`genOptions` 具有缓存的特性，只有当选项别名更新时，才会生成新的 options，否则多次调用，返回的是同一引用对象。
 
 ### 获取某个配置的信息
 
 #### 根据枚举 key 获取相关配置信息
 
-| 方法名         | 类型                                                         | 功能描述                        |
-| -------------- | ------------------------------------------------------------ | ------------------------------- |
-| valueByKey     | `(key: EnumKeyType)=> EnumValueType`                         | 根据 key 获取 value             |
-| labelByKey     | `(key: EnumKeyType)=> EnumLabelType`                         | 根据 key 获取 label             |
-| extraInfoByKey | `(key: EnumKeyType)=> EnumExtraInfoType`                     | 根据 key 获取额外配置的附加信息 |
+| 方法名         | 类型                                                                                                | 功能描述                        |
+| -------------- | --------------------------------------------------------------------------------------------------- | ------------------------------- |
+| valueByKey     | `(key: EnumKeyType)=> EnumValueType`                                                                | 根据 key 获取 value             |
+| labelByKey     | `(key: EnumKeyType)=> EnumLabelType`                                                                | 根据 key 获取 label             |
+| extraInfoByKey | `(key: EnumKeyType)=> EnumExtraInfoType`                                                            | 根据 key 获取额外配置的附加信息 |
 | infoByKey      | `(key: EnumKeyType)=> { value: EnumValueType; label: EnumLabelType; extraInfo: EnumExtraInfoType }` | 根据 key 获取所有枚举信息       |
 
 #### 根据枚举 value 获取相关配置信息
 
-| 方法名           | 类型                                                         | 功能描述                          |
-| ---------------- | ------------------------------------------------------------ | --------------------------------- |
-| labelByValue     | `(value: _possible_v_type)=> EnumLabelType`                  | 根据 value 获取 label             |
-| keyByValue       | `(value: _possible_v_type)=> EnumLabelType`                  | 根据 value 获取 key               |
-| extraInfoByValue | `(value: _possible_v_type)=> EnumExtraInfoType`              | 根据 value 获取额外配置的附加信息 |
+| 方法名           | 类型                                                                                                       | 功能描述                          |
+| ---------------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| labelByValue     | `(value: _possible_v_type)=> EnumLabelType`                                                                | 根据 value 获取 label             |
+| keyByValue       | `(value: _possible_v_type)=> EnumLabelType`                                                                | 根据 value 获取 key               |
+| extraInfoByValue | `(value: _possible_v_type)=> EnumExtraInfoType`                                                            | 根据 value 获取额外配置的附加信息 |
 | infoByValue      | `(value: _possible_v_type)=> { value: EnumValueType; label: EnumLabelType; extraInfo: EnumExtraInfoType }` | 根据 value 获取所有枚举信息       |
-
-
 
 ## x-enum
 
